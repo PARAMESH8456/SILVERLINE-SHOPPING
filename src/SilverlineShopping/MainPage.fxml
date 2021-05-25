@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SilverlineShopping.MainPage">
+   <children>
+      <BorderPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton onAction="#handleCart" prefHeight="41.0" prefWidth="76.0" text="CART">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXTextField fx:id="searchBox">
+                     <HBox.margin>
+                        <Insets left="290.0" top="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="searchButton" onAction="#search" text="Search">
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab fx:id="mobileTab" onSelectionChanged="#loadMobile" text="Mobile">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="mobileTable" layoutX="200.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="mobileNameColumn" prefWidth="173.0" text="Name" />
+                                  <TableColumn fx:id="mobileModelColumn" prefWidth="113.0" text="Model" />
+                                  <TableColumn fx:id="mobilePriceColumn" prefWidth="148.0" text="Price" />
+                                  <TableColumn fx:id="mobileImageColumn" prefWidth="165.0" text="Image" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu fx:id="contextMenuMobile">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#handlePreview" text="Preview" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="electronicsTab" onSelectionChanged="#loadElectronics" text="Electronics">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                       <TableView fx:id="electronicsTable" layoutX="200.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                             <TableColumn fx:id="electronicsNameColumn" prefWidth="173.0" text="Name" />
+                             <TableColumn fx:id="electronicsSerialColumn" prefWidth="113.0" text="Serial" />
+                             <TableColumn fx:id="electronicsPriceColumn" prefWidth="148.0" text="Price" />
+                             <TableColumn fx:id="electronicsImageColumn" prefWidth="165.0" text="Image" />
+                          </columns>
+                              <contextMenu>
+                                 <ContextMenu fx:id="contextMenuElectronics">
+                                    <items>
+                                       <MenuItem mnemonicParsing="false" onAction="#handlePreview" text="Preview" />
+                                    </items>
+                                 </ContextMenu>
+                              </contextMenu>
+                       </TableView>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
